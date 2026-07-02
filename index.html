@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Executive Assistant Skills for OpenClaw: ECA/ECS, meeting prep, action items, email drafts, daily digests, standups, inbox sweeps, and recurring executive admin routines." />
+  <meta property="og:title" content="Executive Assistant Skills for OpenClaw" />
+  <meta property="og:description" content="A practical OpenClaw skill pack for ECA/ECS control, meeting prep, action items, email drafts, Todoist follow-ups, daily digests, and recurring executive admin routines." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mgonto.github.io/executive-assistant-skills/" />
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/mgonto/executive-assistant-skills" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Executive Assistant Skills for OpenClaw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #171717;
+      --muted: #666666;
+      --faint: #8a8a8a;
+      --line: rgba(0, 0, 0, 0.08);
+      --line-strong: #171717;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
+      --blue: #0a72ef;
+      --pink: #de1d8d;
+      --red: #ff5b4f;
+      --green: #13a10e;
+      --shadow-card: rgba(0,0,0,0.08) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 2px, rgba(0,0,0,0.04) 0 8px 8px -8px, #fafafa 0 0 0 1px inset;
+      --shadow-ring: rgba(0,0,0,0.08) 0 0 0 1px;
+      --radius: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-feature-settings: "liga" 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.84);
+      box-shadow: var(--shadow-ring);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      height: 68px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: -0.32px;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #171717;
+      color: #fff;
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4d4d4d;
+    }
+
+    .nav-links a:hover { color: #171717; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-dark {
+      color: #fff;
+      background: #171717;
+      box-shadow: rgba(0,0,0,0.14) 0 8px 18px -12px;
+    }
+
+    .button-light {
+      color: #171717;
+      background: #fff;
+      box-shadow: var(--shadow-ring);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #171717;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -220px -120px auto;
+      height: 560px;
+      background:
+        radial-gradient(circle at 25% 30%, rgba(10,114,239,.16), transparent 34%),
+        radial-gradient(circle at 58% 18%, rgba(222,29,141,.13), transparent 31%),
+        radial-gradient(circle at 78% 52%, rgba(255,91,79,.14), transparent 30%);
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 98px 24px 76px;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 7px 11px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      background: #ebf5ff;
+      color: #0068d6;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: rgba(0,104,214,0.18) 0 0 0 1px inset;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0068d6;
+      box-shadow: 0 0 0 4px rgba(0,104,214,.08);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: .94;
+      letter-spacing: clamp(-3.4px, -.06em, -2.2px);
+      font-weight: 600;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: #4d4d4d;
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.55;
+      letter-spacing: -0.16px;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stats {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow-ring);
+      backdrop-filter: blur(12px);
+    }
+
+    .terminal-card {
+      background: #050505;
+      color: #ededed;
+      border-radius: 18px;
+      box-shadow: rgba(0,0,0,.22) 0 18px 60px -22px, rgba(255,255,255,.12) 0 0 0 1px inset;
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+    }
+
+    .traffic { display: flex; gap: 6px; }
+    .traffic span { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .traffic span:nth-child(1) { background: #ff5b4f; }
+    .traffic span:nth-child(2) { background: #f5c542; }
+    .traffic span:nth-child(3) { background: #13a10e; }
+
+    .terminal-title {
+      font-family: 'Geist Mono', monospace;
+      color: #a3a3a3;
+      font-size: 12px;
+    }
+
+    .terminal-body {
+      padding: 22px;
+      font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.75;
+      overflow-x: auto;
+    }
+
+    .prompt { color: #8a8a8a; }
+    .cmd { color: #fff; }
+    .comment { color: #8a8a8a; }
+    .blue { color: #5eb1ff; }
+    .pink { color: #ff5db1; }
+    .red { color: #ff766e; }
+    .green { color: #65d46e; }
+
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 88px 24px;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      font-family: 'Geist Mono', monospace;
+      color: #666;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+      font-weight: 500;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -2.2px;
+      font-weight: 600;
+    }
+
+    .section-copy {
+      margin: 16px 0 0;
+      color: #4d4d4d;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .workflow-card,
+    .skill-card,
+    .step-card,
+    .quote-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+    }
+
+    .workflow-card {
+      position: relative;
+      padding: 24px;
+      min-height: 230px;
+      overflow: hidden;
+    }
+
+    .workflow-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .workflow-card .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .workflow-card h3,
+    .skill-card h3,
+    .step-card h3 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.96px;
+      font-weight: 600;
+    }
+
+    .workflow-card p,
+    .skill-card p,
+    .step-card p {
+      margin: 12px 0 0;
+      color: #4d4d4d;
+      line-height: 1.6;
+      font-size: 15.5px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 238px;
+    }
+
+    .skill-label {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #fafafa;
+      color: #4d4d4d;
+      box-shadow: var(--shadow-ring);
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .skill-card ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .skill-card li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .skill-card li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .demo-band {
+      margin: 8px 0 0;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .quote-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+      background: linear-gradient(180deg, #fff, #fbfbfb);
+    }
+
+    .quote-card blockquote {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -1.7px;
+      font-weight: 600;
+    }
+
+    .quote-card p {
+      color: #666;
+      line-height: 1.6;
+      margin: 22px 0 0;
+    }
+
+    .sample-output {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .sample-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      background: #fafafa;
+      box-shadow: rgba(0,0,0,.07) 0 -1px 0 0 inset;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .sample-body {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .message {
+      padding: 16px;
+      border-radius: 12px;
+      background: #fafafa;
+      box-shadow: rgba(0,0,0,.06) 0 0 0 1px inset;
+      color: #3d3d3d;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .message strong { color: #171717; }
+
+    .setup-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .step-card {
+      padding: 22px;
+      min-height: 184px;
+    }
+
+    .step-card .step {
+      font-family: 'Geist Mono', monospace;
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .code-block {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #050505;
+      color: #ededed;
+      overflow-x: auto;
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      box-shadow: rgba(255,255,255,.12) 0 0 0 1px inset;
+    }
+
+    .cta {
+      max-width: none;
+      padding: 0;
+      border-top: 1px solid #171717;
+      border-bottom: 1px solid #171717;
+      background: #050505;
+      color: #fff;
+    }
+
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 78px 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .cta h2 { color: #fff; }
+    .cta p { color: #a3a3a3; max-width: 660px; }
+    .cta .button-light { background: #fff; color: #171717; }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 24px 54px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    footer a { color: #171717; font-weight: 500; }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .demo-band,
+      .cta-inner { grid-template-columns: 1fr; }
+      .workflow,
+      .skill-grid { grid-template-columns: repeat(2, 1fr); }
+      .setup-grid { grid-template-columns: repeat(2, 1fr); }
+      .terminal-card { max-width: 720px; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero-inner { padding-top: 72px; }
+      section { padding: 64px 20px; }
+      .workflow,
+      .skill-grid,
+      .setup-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 48px; }
+      h2 { letter-spacing: -1.5px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button { width: 100%; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Executive Assistant Skills home">
+        <span class="brand-mark">EA</span>
+        <span>Executive Assistant Skills</span>
+      </a>
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#setup">Setup</a>
+        <a href="https://github.com/mgonto/executive-assistant-skills">GitHub</a>
+        <a class="button button-dark" href="https://github.com/mgonto/executive-assistant-skills">Star / Fork</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> OpenClaw skill pack for operator-grade EA automation</div>
+          <h1>Replace routine executive assistant work with repeatable AI skills.</h1>
+          <p class="hero-copy">ECA control loops, meeting briefs, action items, follow-up drafts, daily digests, standups, inbox sweeps, and recurring admin routines, packaged as portable <code>SKILL.md</code> files for OpenClaw.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="https://github.com/mgonto/executive-assistant-skills">View on GitHub</a>
+            <a class="button button-light" href="#setup">Quick setup</a>
+          </div>
+          <div class="stats" aria-label="Project highlights">
+            <span class="stat-pill">14 skills</span>
+            <span class="stat-pill">Gmail + Calendar</span>
+            <span class="stat-pill">Granola / Grain</span>
+            <span class="stat-pill">Todoist</span>
+            <span class="stat-pill">ECA / ECS</span>
+          </div>
+        </div>
+
+        <div class="terminal-card" aria-label="Install commands">
+          <div class="terminal-top">
+            <div class="traffic"><span></span><span></span><span></span></div>
+            <div class="terminal-title">~/executive-assistant-skills</div>
+          </div>
+          <div class="terminal-body">
+            <span class="prompt">$</span> <span class="cmd">git clone https://github.com/mgonto/executive-assistant-skills.git</span><br>
+            <span class="prompt">$</span> <span class="cmd">cp config/user.example.json config/user.json</span><br>
+            <span class="comment"># Add as an OpenClaw extra skill directory</span><br>
+            <span class="prompt">$</span> <span class="cmd">openclaw gateway restart</span><br><br>
+            <span class="green">✓</span> <span class="comment">meeting prep before calls</span><br>
+            <span class="blue">✓</span> <span class="comment">follow-up tasks after meetings</span><br>
+            <span class="pink">✓</span> <span class="comment">draft-only email automation</span><br>
+            <span class="red">✓</span> <span class="comment">daily executive digest</span><br>
+            <span class="green">✓</span> <span class="comment">ECA control and standup routines</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="workflow-title">
+      <div class="section-head">
+        <p class="kicker">How it works</p>
+        <h2 id="workflow-title">A daily operating loop for your AI chief of staff.</h2>
+        <p class="section-copy">The skills are designed to run on schedules, but each can also be triggered manually. The point is not to chat more. The point is to make sure the obvious work gets done before you notice it.</p>
+      </div>
+      <div class="workflow">
+        <article class="workflow-card" style="--accent:#0a72ef;--accent-bg:#ebf5ff">
+          <span class="num">01</span>
+          <h3>Prepare</h3>
+          <p>Pull calendar, attendee context, email history, past meeting notes, LinkedIn, and company research before meetings start.</p>
+        </article>
+        <article class="workflow-card" style="--accent:#de1d8d;--accent-bg:#fff0f8">
+          <span class="num">02</span>
+          <h3>Capture</h3>
+          <p>Extract commitments from meeting transcripts, create Todoist tasks, detect duplicates, and draft the follow-ups you promised.</p>
+        </article>
+        <article class="workflow-card" style="--accent:#ff5b4f;--accent-bg:#fff1ef">
+          <span class="num">03</span>
+          <h3>Surface</h3>
+          <p>Send a concise executive digest with overdue work, stalled threads, pending intros, calendar risks, and drafts waiting for review.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <p class="kicker">Included skills</p>
+        <h2 id="skills-title">Fourteen practical skills that map to real EA and ECA jobs.</h2>
+        <p class="section-copy">Each skill is just markdown, so you can read it, edit it, fork it, and make the behavior match how you actually work.</p>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <span class="skill-label">executive-control-system</span>
+          <h3>ECA / ECS</h3>
+          <p>Control-system layer for more time, less stress, and more control across inbox, calendar, loops, decisions, and stress load.</p>
+          <ul>
+            <li>Draft-only authority boundaries</li>
+            <li>Decision compression</li>
+            <li>Open-loop radar</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">meeting-prep</span>
+          <h3>Meeting prep</h3>
+          <p>Briefings for today’s meetings with attendee research, RSVP flags, email context, past notes, and focus areas.</p>
+          <ul>
+            <li>One message per meeting</li>
+            <li>Internal vs external logic</li>
+            <li>Pre-meeting reminders</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">action-items-todoist</span>
+          <h3>Action items</h3>
+          <p>Turns meeting commitments into Todoist tasks and draft emails, while preventing duplicate tasks from multiple cron runs.</p>
+          <ul>
+            <li>Granola + Grain checks</li>
+            <li>Todoist task creation</li>
+            <li>Follow-up draft triggers</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">email-drafting</span>
+          <h3>Email drafting</h3>
+          <p>Draft-only Gmail automation for intros, scheduling intent, thanks, acknowledgements, and positive short replies.</p>
+          <ul>
+            <li>Never sends automatically</li>
+            <li>Mirrors inbound language</li>
+            <li>Uses your style guide</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">executive-digest</span>
+          <h3>Executive digest</h3>
+          <p>A daily attention report across tasks, calendars, stalled email threads, promised follow-ups, and pending drafts.</p>
+          <ul>
+            <li>Suppresses repeats</li>
+            <li>Checks both Gmail accounts</li>
+            <li>Flags calendar risks</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">todoist-due-drafts</span>
+          <h3>Due-today drafts</h3>
+          <p>Looks at today’s and overdue outreach tasks, creates contextual Gmail drafts, and notifies you for review.</p>
+          <ul>
+            <li>Task intent filtering</li>
+            <li>Thread-aware drafts</li>
+            <li>Existing-draft detection</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">daily-inbox-sweep</span>
+          <h3>Daily inbox sweep</h3>
+          <p>Processes an assistant inbox, organizes new items, routes tasks, dedupes alerts, and flags human attention items.</p>
+          <ul>
+            <li>Categorizes new items</li>
+            <li>Routes tasks safely</li>
+            <li>Dedupes alerts</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">daily-standup-prep</span>
+          <h3>Daily standup prep</h3>
+          <p>Creates tight morning standups and EOD closeouts from recent work signals, task state, and blockers.</p>
+          <ul>
+            <li>Yesterday / Today / Blockers</li>
+            <li>EOD closeout mode</li>
+            <li>No invented recaps</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">weekly-life-admin</span>
+          <h3>Weekly life admin</h3>
+          <p>Reviews upcoming logistics, renewals, errands, appointments, and week-ahead preparation.</p>
+          <ul>
+            <li>7-day calendar scan</li>
+            <li>Renewal checks</li>
+            <li>Day-by-day checklist</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">weekly-competitor-scan</span>
+          <h3>Competitor scan</h3>
+          <p>Tracks AI assistant and productivity market moves, opportunities, and threats with cited sources.</p>
+          <ul>
+            <li>Market moves</li>
+            <li>Opportunities</li>
+            <li>Threats</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">weekly-content-generation</span>
+          <h3>Content generation</h3>
+          <p>Turns recent work, meetings, and notes into weekly social posts, blog outlines, and newsletter drafts.</p>
+          <ul>
+            <li>Uses real context</li>
+            <li>Voice-aware drafts</li>
+            <li>No invented claims</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">monthly-bill-review</span>
+          <h3>Monthly bill review</h3>
+          <p>Reviews expenses and subscriptions, flags anomalies, and creates cancel/dispute/investigate action items.</p>
+          <ul>
+            <li>Subscription review</li>
+            <li>Anomaly flags</li>
+            <li>Read-only by default</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">quarterly-review</span>
+          <h3>Quarterly review</h3>
+          <p>Builds a one-page executive review of goals, metrics, wins, misses, patterns, and next-quarter priorities.</p>
+          <ul>
+            <li>Goal status</li>
+            <li>Wins and misses</li>
+            <li>Next-quarter priorities</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <span class="skill-label">humanizer</span>
+          <h3>Humanizer</h3>
+          <p>Final pass rules to remove generic AI writing patterns and keep drafts short, specific, and human.</p>
+          <ul>
+            <li>No AI fluff</li>
+            <li>No over-formality</li>
+            <li>Voice consistency</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="proof-title">
+      <div class="demo-band">
+        <div class="quote-card">
+          <div>
+            <p class="kicker">The promise</p>
+            <blockquote id="proof-title">Stop relying on memory for the work your calendar and inbox already know about.</blockquote>
+            <p>These skills make the agent check the right systems, preserve context, draft the routine communication, and put only the decision-worthy items in front of you.</p>
+          </div>
+          <a class="button button-dark" href="https://github.com/mgonto/executive-assistant-skills/tree/main/docs">Read the docs</a>
+        </div>
+        <div class="sample-output" aria-label="Example output">
+          <div class="sample-header">
+            <span>Example daily flow</span>
+            <span>draft-only, review-first</span>
+          </div>
+          <div class="sample-body">
+            <div class="message"><strong>📋 Meeting prep</strong><br>3 meetings today. First call with Maya at 11:00, follow-up with Ana at 14:30, internal planning at 16:00. Ana has not accepted yet.</div>
+            <div class="message"><strong>✅ Action items</strong><br>Created 4 Todoist tasks from Growth Partners call. Drafted intro email for Luca <> Priya. Skipped 2 duplicate follow-ups.</div>
+            <div class="message"><strong>📬 Due-today drafts</strong><br>2 outreach drafts created from Todoist. Review in Gmail before sending.</div>
+            <div class="message"><strong>🧠 Executive digest</strong><br>One stalled scheduling thread, two overdue tasks, one stale draft deleted because you already replied.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" aria-labelledby="setup-title">
+      <div class="section-head">
+        <p class="kicker">Setup</p>
+        <h2 id="setup-title">Clone, configure, load, schedule.</h2>
+        <p class="section-copy">The repository includes a full setup guide and ready-to-adapt cron examples. Personal config stays local in <code>config/user.json</code>, which is gitignored.</p>
+      </div>
+      <div class="setup-grid">
+        <article class="step-card">
+          <div class="step">Step 01</div>
+          <h3>Clone</h3>
+          <p>Put the repo at <code>~/executive-assistant-skills</code> so relative skill paths resolve correctly.</p>
+        </article>
+        <article class="step-card">
+          <div class="step">Step 02</div>
+          <h3>Configure</h3>
+          <p>Copy the example config and fill in email accounts, timezone, Slack, WhatsApp, and workspace paths.</p>
+        </article>
+        <article class="step-card">
+          <div class="step">Step 03</div>
+          <h3>Connect tools</h3>
+          <p>Authenticate Gmail/Calendar through gog, meeting tools through mcporter, and Todoist through the CLI.</p>
+        </article>
+        <article class="step-card">
+          <div class="step">Step 04</div>
+          <h3>Schedule</h3>
+          <p>Add cron jobs for meeting prep, action items, due-today drafts, digest, and token refresh.</p>
+        </article>
+      </div>
+      <div class="code-block" aria-label="Quick setup command">
+        git clone https://github.com/mgonto/executive-assistant-skills.git ~/executive-assistant-skills<br>
+        cd ~/executive-assistant-skills<br>
+        cp config/user.example.json config/user.json<br>
+        # Then follow docs/setup.md and docs/crons.md
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta-inner">
+        <div>
+          <p class="kicker">Forkable by design</p>
+          <h2 id="cta-title">Build your own AI executive assistant stack.</h2>
+          <p class="section-copy">Use this as a starting point, tune the skill markdown to your inbox, calendar, voice, and operating rhythm, then let OpenClaw run the loop.</p>
+        </div>
+        <a class="button button-light" href="https://github.com/mgonto/executive-assistant-skills">Open the repository</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Executive Assistant Skills for OpenClaw.</span>
+    <span><a href="https://github.com/mgonto/executive-assistant-skills">GitHub</a> · <a href="https://docs.openclaw.ai/">OpenClaw docs</a> · <a href="https://github.com/mgonto/executive-assistant-skills/blob/main/docs/setup.md">Setup guide</a></span>
+  </footer>
+</body>
+</html>
