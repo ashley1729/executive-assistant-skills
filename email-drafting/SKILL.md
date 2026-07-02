@@ -1,6 +1,6 @@
 ---
 name: email-drafting
-description: Draft email replies for Gonto's Gmail accounts (m@gon.to, gonto@hypergrowthpartners.com). Handles intro acceptances, scheduling intent, thanks/ack, and positive short replies. Use when user asks to draft or reply to an email, or when Gmail webhook triggers arrive for auto-draft classification. Draft-only mode — never sends automatically.
+description: Draft email replies for Gonto's Gmail accounts (primary@example.com, work@example.com). Handles intro acceptances, scheduling intent, thanks/ack, and positive short replies. Use when user asks to draft or reply to an email, or when Gmail webhook triggers arrive for auto-draft classification. Draft-only mode — never sends automatically.
 ---
 # Email Drafting Skill
 
@@ -75,7 +75,7 @@ Auto-draft and manually-requested email drafts for {user.primary_email} and {use
 ## Draft Links
 After creating a draft via `gog`, extract the draft ID from the response.
 Gmail draft URL format: `https://mail.google.com/mail/u/?authuser={account_email}#drafts?compose={message_id}`
-Use `authuser=m@gon.to` or `authuser=gonto@hypergrowthpartners.com` as appropriate.
+Use `authuser=primary@example.com` or `authuser=work@example.com` as appropriate.
 
 ## Trigger Detection
 

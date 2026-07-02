@@ -1,8 +1,8 @@
 # executive-assistant-skills
 
-OpenClaw skills that replace routine executive assistant work and add an Executive Control Assistant (ECA/ECS) layer for founder/operator control.
+OpenClaw skills that replace routine executive assistant work, add an Executive Control Assistant (ECA/ECS) layer for founder/operator control, and preserve the reusable Atlas/GodMode assistant markdown pack.
 
-After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let go of my human EA and replaced her core recurring work with my Claw. This repo now includes the original EA operating skills plus the ECA / Executive Control System patterns for inbox discipline, decision compression, calendar integrity, open-loop control, and stress containment.
+After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let go of my human EA and replaced her core recurring work with my Claw. This repo now includes the original EA operating skills, the full ECA / Executive Control System spec, and the reusable Atlas/GodMode assistant personas, skill cards, and markdown skills for inbox discipline, decision compression, calendar integrity, open-loop control, stress containment, personal assistance, research, content, life admin, QA, and project orchestration.
 
 ## What's included
 
@@ -29,6 +29,21 @@ After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let 
 | `weekly-content-generation` | Turns recent work, meetings, and notes into weekly social/content drafts |
 | `monthly-bill-review` | Reviews expenses and subscriptions, flags anomalies, and produces cancel/dispute/investigate action items |
 | `quarterly-review` | Produces a one-page executive review of goals, metrics, wins, misses, patterns, and next-quarter priorities |
+
+
+### Atlas Assistants / GodMode markdown pack
+
+This repo also includes the broader reusable assistant markdown from the Atlas/GodMode system under `atlas-assistants/`:
+
+| Folder | Contents |
+|--------|----------|
+| `atlas-assistants/personas/` | 7 reusable assistant personas: personal assistant, inbox manager, meeting prep, research analyst, content writer, weekly reviewer, and code reviewer |
+| `atlas-assistants/skill-cards/` | 33 lightweight skill cards for inbox sweep, meetings, calendar, tasks, life admin, bill review, content generation, competitor scan, project orchestration, QA, second brain, dashboards, and more |
+| `atlas-assistants/skills/` | 16 fuller assistant/GodMode skills including auto-research, post-meeting, evening review, dashboard builder, first-principles, weekly coaching, onboarding, adversarial board, and skill builder |
+| `atlas-assistants/docs/` | Public assistant-system docs: vision, second brain system, and roadmap |
+| `atlas-assistants/MANIFEST.md` | Complete file inventory and exclusion policy |
+
+The Atlas/GodMode files are included as markdown assets, not as live plugin code. They are meant to be copied, adapted, or converted into OpenClaw/Hermes skills.
 
 ## ECA references
 

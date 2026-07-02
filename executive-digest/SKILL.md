@@ -65,9 +65,9 @@ Use `gog --account {email} --no-input gmail search "query" --json` for all searc
 
 **Team-handled threads (MANDATORY check):**
 Before flagging ANY intro, follow-up, or email item as "pending" or "no reply", check the FULL thread for replies from Gonto's team. ANY reply from the following people counts as the item being handled:
-- Gonto himself (m@gon.to, gonto@hypergrowthpartners.com)
-- Alfred/Howie — scheduling assistant (alfred@hypergrowthpartners.com, alfred@hybridautopilotrun.com)
-- Giulia (giulia@growth.li, giulia@hypergrowthpartners.com)
+- Gonto himself (primary@example.com, work@example.com)
+- Alfred/Howie — scheduling assistant (scheduler@example.com, scheduler-alt@example.com)
+- Giulia (teammate@example.com, teammate-work@example.com)
 
 ```bash
 gog --account {user.work_email} --no-input gmail thread get <threadId>
