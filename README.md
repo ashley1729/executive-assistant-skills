@@ -1,10 +1,12 @@
 # executive-assistant-skills
 
-OpenClaw skills that replace a human executive assistant.
+OpenClaw skills that replace routine executive assistant work and add an Executive Control Assistant (ECA/ECS) layer for founder/operator control.
 
-After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let go of my human EA and replaced her entirely with my Claw. These five skills handle the core of what an executive assistant does: prepping for meetings, following up on action items, drafting emails, and keeping you on top of everything.
+After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let go of my human EA and replaced her core recurring work with my Claw. This repo now includes the original EA operating skills plus the ECA / Executive Control System patterns for inbox discipline, decision compression, calendar integrity, open-loop control, and stress containment.
 
 ## What's included
+
+### Core executive assistant skills
 
 | Skill | What it replaces |
 |-------|-----------------|
@@ -15,20 +17,44 @@ After setting up these skills with [OpenClaw](https://docs.openclaw.ai/), I let 
 | `todoist-due-drafts` | EA checking your task list each morning, drafting follow-up/ping emails for anything due today, and notifying you to review |
 | `humanizer` | Making sure nothing your Claw writes sounds like AI wrote it (originally by [biostartechnology](https://clawhub.ai/biostartechnology/humanizer)) |
 
+### ECA / chief-of-staff control skills
+
+| Skill | What it does |
+|-------|--------------|
+| `executive-control-system` | ECA/ECS operating system for more time, less stress, and more control: inbox discipline, decision compression, calendar guardian, open-loop radar, and draft-only control surfaces |
+| `daily-inbox-sweep` | Processes an assistant inbox, organizes new items, routes tasks, dedupes alerts, and flags human attention items |
+| `daily-standup-prep` | Prepares concise morning standups and end-of-day closeouts from recent work signals, task state, and blockers |
+| `weekly-life-admin` | Reviews upcoming personal logistics, appointments, renewals, errands, and week-ahead prep |
+| `weekly-competitor-scan` | Scans the AI assistant / productivity market for moves, opportunities, and threats |
+| `weekly-content-generation` | Turns recent work, meetings, and notes into weekly social/content drafts |
+| `monthly-bill-review` | Reviews expenses and subscriptions, flags anomalies, and produces cancel/dispute/investigate action items |
+| `quarterly-review` | Produces a one-page executive review of goals, metrics, wins, misses, patterns, and next-quarter priorities |
+
+## ECA references
+
+The `executive-control-system` skill includes reusable public reference patterns:
+
+- `executive-control-system/references/simple-eca-draft-pad.md` — a simplified ECA draft-pad interface pattern
+- `executive-control-system/references/manual-eca-control-center-ui.md` — a manual ECA control-center UI pattern
+- `executive-control-system/references/operating-loop-anatomy-feedback-path.md` — the 10-part anatomy of real operating loops
+- `executive-control-system/references/daily-brief-open-loop-vs-calendar-load.md` — how to detect when open-loop load matters more than meeting load
+
+Private deployment-specific runtime notes were intentionally not included. This repo is public and should stay portable.
+
 ## How it works
 
-Each skill is a markdown file (`SKILL.md`) that tells your Claw exactly how to do the job. Your Claw reads the skill, follows the instructions, and delivers results to WhatsApp (or Slack, Telegram, etc.).
+Each skill is a markdown file (`SKILL.md`) that tells your Claw exactly how to do the job. Your Claw reads the skill, follows the instructions, and delivers results to WhatsApp, Slack, Telegram, or another configured channel.
 
-Skills run on cron schedules — meeting prep fires before your first meeting, action items run after your last meeting, and the digest hits every morning. You can also trigger any skill manually by asking your Claw.
+Skills run on cron schedules — meeting prep fires before your first meeting, action items run after meetings, digests hit in the morning, and ECA/ECS can run as a daily/weekly control loop. You can also trigger any skill manually by asking your Claw.
 
 All personal config (email accounts, timezone, work schedule, etc.) lives in a single `config/user.json` that's gitignored and never committed.
 
 ## Prerequisites
 
 - [OpenClaw](https://docs.openclaw.ai/) running (local or server)
-- Two Gmail accounts connected via [gog](https://github.com/xhit/gog) CLI
-- [Granola](https://granola.ai/) or [Grain](https://grain.com/) for meeting transcripts (via mcporter MCP)
-- [Todoist CLI](https://github.com/joelhoelting/todoist-cli) for task management
+- Gmail / Google Calendar access, commonly through [gog](https://github.com/xhit/gog) CLI
+- [Granola](https://granola.ai/) or [Grain](https://grain.com/) for meeting transcripts, commonly via mcporter MCP
+- [Todoist CLI](https://github.com/joelhoelting/todoist-cli) or another task tool for task management
 - A `style/` directory in your OpenClaw workspace with email style guides (see `docs/setup.md`)
 
 ---
@@ -83,7 +109,7 @@ See `config/user.example.json` for the full template:
 | `name` | `"YourName"` | Meeting transcript queries, task attribution |
 | `primary_email` | `"you@gmail.com"` | Gmail account 1 |
 | `work_email` | `"you@company.com"` | Gmail account 2 |
-| `whatsapp` | `"+1234567890"` | Digest and alert delivery |
+| `whatsapp` | `"+123****7890"` | Digest and alert delivery |
 | `timezone` | `"America/New_York"` | Meeting times, cron scheduling |
 | `scheduling_cc` | `"assistant@company.com"` | CC on scheduling emails |
 | `scheduling_silent_cc` | `"colleague@company.com"` | Silent CC (not mentioned in body) |
@@ -106,3 +132,4 @@ See `config/user.example.json` for the full template:
 - `config/user.example.json` is the committed template
 - `state/` and `logs/` are gitignored (machine-local)
 - Skills reference workspace files (`style/`, `state/`, `scripts/`) via `{user.workspace}/` prefix for portability
+- Public templates should not include private client names, credentials, channel IDs, or deployment-specific runtime logs
